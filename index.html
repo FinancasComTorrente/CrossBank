@@ -86,17 +86,17 @@
             opacity: 0.9;
         }
 
-        /* Mockup de Mídia no Hero */
         .hero-media {
             flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #e0e0e0;
-            min-height: 350px;
+        }
+
+        .hero-media img {
+            max-width: 100%;
+            height: auto;
             border-radius: 10px;
-            color: #666;
-            font-size: 1.2rem;
         }
         
         .trust-badges {
@@ -217,22 +217,18 @@
             background-color: var(--white);
         }
 
-        /* Mockup de vídeo na seção de benefícios */
-        .video-placeholder {
+        .video-container {
             max-width: 800px;
             margin: 0 auto 60px auto;
             aspect-ratio: 16 / 9;
-            background-color: #e0e0e0;
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
+            overflow: hidden;
+            background-color: #e0e0e0;
         }
 
-        .video-placeholder i {
-            font-size: 60px;
-            color: #999;
+        .video-container video {
+            width: 100%;
+            height: 100%;
         }
         
         .benefits-grid {
@@ -276,16 +272,13 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.07);
             text-align: center;
         }
-        .testimonial-photo-placeholder {
+        .testimonial-photo {
             width: 80px;
             height: 80px;
             border-radius: 50%;
             background-color: #e0e0e0;
             margin: 0 auto 20px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
+            object-fit: cover;
         }
         .testimonial-card h4 {
             margin-bottom: 10px;
@@ -324,7 +317,6 @@
             margin-bottom: 25px;
         }
         
-        /* Módulos com Placeholder de Vídeo */
         .module-list {
             text-align: left;
             margin: 20px 0;
@@ -338,18 +330,16 @@
             margin-bottom: 15px;
         }
         .module-video-placeholder {
-            width: 100px;
-            height: 60px;
+            width: 120px;
+            height: 67px;
             background-color: #e0e0e0;
             border-radius: 5px;
             flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-        .module-video-placeholder i {
-            color: #999;
-            font-size: 24px;
+        .module-video-placeholder video {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
         }
 
         .price {
@@ -509,7 +499,7 @@
                     <p class="price-note">Acesso Imediato ao Método por apenas R$ 29,90</p>
                 </div>
                 <div class="hero-media">
-                    <span><img src="./Imagem Hero (Destaque) _Smartphone mostrando um app fictício que exibe saldos de.png" alt=""></span>
+                    <img src="./Imagem Hero (Destaque) _Smartphone mostrando um app fictício que exibe saldos de.png" alt="Demonstração do App CrossBank em um smartphone">
                 </div>
             </div>
         </div>
@@ -537,7 +527,7 @@
                     <p>Um guia em vídeo, direto ao ponto, que te mostra na tela do celular como usar o sistema Open Finance para criar uma <strong>torrente de informações positivas</strong> a seu favor. Você vai centralizar sua vida financeira, ganhar clareza e mostrar para o seu banco principal que você é um cliente que merece confiança e crédito.</p>
                 </div>
                 <div class="solution-image">
-                    <img src="./Gemini_Generated_Image_bz7anibz7anibz7a.png" alt="Preview do Método Cross Bank">
+                    <img src="./Gemini_Generated_Image_bz7anibz7anibz7a.png" alt="Escudo de segurança Cross Bank conectando vários bancos">
                 </div>
             </div>
         </div>
@@ -547,8 +537,10 @@
         <div class="container">
             <h2 class="section-title">Veja como sua vida financeira vai se transformar:</h2>
             
-            <div class="video-placeholder">
-                <i class="fas fa-play"><video src="./Create_a_visualization_202507300809_1gmct.mp4"></video></i>
+            <div class="video-container">
+                <video controls poster="./Gemini_Generated_Image_bz7anibz7anibz7a.png" src="">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
             </div>
             
             <div class="benefits-grid">
@@ -565,17 +557,17 @@
             <h2 class="section-title">O que nossos clientes dizem</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <div class="testimonial-photo-placeholder"><i class="fas fa-user"></i></div>
+                    <img src="" alt="Foto do cliente João S." class="testimonial-photo">
                     <h4>João S.</h4>
                     <p>"Eu não tinha ideia do poder do Open Finance. O método Cross Bank abriu meus olhos e finalmente consegui o cartão que tanto queria!"</p>
                 </div>
                 <div class="testimonial-card">
-                    <div class="testimonial-photo-placeholder"><i class="fas fa-user"></i></div>
+                    <img src="" alt="Foto do cliente Maria P." class="testimonial-photo">
                     <h4>Maria P.</h4>
                     <p>"Acabou a bagunça de ter 5 apps de banco. Agora vejo tudo em um só lugar. É uma paz de espírito que não tem preço. Recomendo demais!"</p>
                 </div>
                 <div class="testimonial-card">
-                    <div class="testimonial-photo-placeholder"><i class="fas fa-user"></i></div>
+                    <img src="" alt="Foto do cliente Carlos F." class="testimonial-photo">
                     <h4>Carlos F.</h4>
                     <p>"Simples, direto e funciona. Em uma semana, minha organização financeira era outra. O bônus do checklist é fantástico."</p>
                 </div>
@@ -591,19 +583,27 @@
                 <h3 class="offer-box-title">Seu Acesso Completo ao Método CROSS BANK</h3>
                 <ul class="module-list">
                     <li class="module-item">
-                        <div class="module-video-placeholder"><i class="fas fa-play"></i></div>
+                        <div class="module-video-placeholder">
+                            <video src=""></video>
+                        </div>
                         <div><strong>Módulo 1:</strong> Fundamentos da Confiança - Desmistificando o Open Finance</div>
                     </li>
                     <li class="module-item">
-                        <div class="module-video-placeholder"><i class="fas fa-play"></i></div>
+                        <div class="module-video-placeholder">
+                             <video src=""></video>
+                        </div>
                         <div><strong>Módulo 2:</strong> A Conexão na Prática (Cross Bank) - Passo a passo em vídeo</div>
                     </li>
                     <li class="module-item">
-                        <div class="module-video-placeholder"><i class="fas fa-play"></i></div>
+                        <div class="module-video-placeholder">
+                             <video src=""></video>
+                        </div>
                         <div><strong>Módulo 3:</strong> Gerenciamento Inteligente - Como usar as ferramentas</div>
                     </li>
                      <li class="module-item">
-                        <div class="module-video-placeholder"><i class="fas fa-play"></i></div>
+                        <div class="module-video-placeholder">
+                             <video src=""></video>
+                        </div>
                         <div><strong>Bônus Exclusivo:</strong> Como evitar golpes do PIX </div>
                     </li>
                 </ul>
@@ -635,7 +635,7 @@
                 <div class="faq-item"><div class="faq-question"><span>Alguém terá acesso às minhas senhas?</span><i class="fas fa-plus"></i></div><div class="faq-answer"><p><strong>NUNCA.</strong> O processo de conexão é feito diretamente entre os sistemas seguros dos bancos. Você nunca digita a senha de um banco no aplicativo de outro. A autorização é feita por redirecionamento seguro.</p></div></div>
                 <div class="faq-item"><div class="faq-question"><span>Fazer isso vai "sujar meu nome" ou afetar meu score de alguma forma?</span><i class="fas fa-plus"></i></div><div class="faq-answer"><p>Pelo contrário. Ao centralizar suas informações, você mostra um retrato completo e positivo da sua saúde financeira, o que <strong>tende a melhorar a sua avaliação de crédito</strong> junto ao banco que você escolheu como principal.</p></div></div>
                 <div class="faq-item"><div class="faq-question"><span>O acesso ao método é por quanto tempo?</span><i class="fas fa-plus"></i></div><div class="faq-answer"><p>O acesso é vitalício. Você paga uma vez e pode consultar as aulas sempre que quiser, incluindo futuras atualizações.</p></div></div>
-                <div class="faq-item"><div class="faq-question"><span>Como recebo o acesso após o pagamento?</span><i class="fas fa-plus"></i></div><div class="faq-answer"><p>Imediatamente. Assim que o pagamento for processado, você receberá um e-mail da Kiwify (nossa plataforma de pagamentos segura) com seu link de acesso pessoal para a área de membros.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Como recebo o acesso após o pagamento?</span><i class="fas fa-plus"></i></div><div class="faq-answer"><p>Imediatamente. Assim que o pagamento for processado, você receberá um e-mail da Hotmart (nossa plataforma de pagamentos segura) com seu link de acesso pessoal para a área de membros.</p></div></div>
             </div>
         </div>
     </section>
@@ -646,7 +646,7 @@
             <div class="footer-links">
                 <a href="#">Termos de Uso</a>
                 <a href="#">Política de Privacidade</a>
-                <a href="wa.me/5569992162700">Contato</a>
+                <a href="#">Contato</a>
             </div>
             <p class="copyright">© 2025 Cross Bank. Todos os direitos reservados.</p>
             <p class="copyright">Este produto não é afiliado ao Banco Central ou a qualquer instituição financeira.</p>
@@ -685,4 +685,3 @@
     </script>
 </body>
 </html>
-```
