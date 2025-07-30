@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -5,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cross Bank - Com Torrente | Controle Total do Seu Open Finance</title>
     <style>
+        /* Paleta de Cores da Marca */
+        :root {
+            --dark-blue: #0C1C34;
+            --medium-blue: #152C52;
+            --gold: #D0A747;
+            --bronze: #B27D2D;
+            --white: #FFFFFF;
+            --light-gray: #f8f9fa;
+        }
+
         /* Reset e Estilos Globais */
         * {
             margin: 0;
@@ -14,8 +25,8 @@
         }
         
         body {
-            background-color: #f8f9fa;
-            color: #333;
+            background-color: var(--white);
+            color: var(--dark-blue);
             line-height: 1.6;
         }
         
@@ -27,8 +38,8 @@
         
         /* Estilos do Header */
         header {
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             padding: 20px 0;
             position: sticky;
             top: 0;
@@ -38,19 +49,29 @@
         .logo {
             font-size: 28px;
             font-weight: 700;
-            color: #0056b3;
+            color: var(--medium-blue);
         }
         
         .logo span {
-            color: #28a745;
+            color: var(--gold);
         }
         
         /* Seção Hero */
         .hero {
-            background: linear-gradient(135deg, #0056b3 0%, #003366 100%);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
+            background: linear-gradient(135deg, var(--medium-blue) 0%, var(--dark-blue) 100%);
+            color: var(--white);
+            padding: 60px 0;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+            text-align: left;
         }
         
         .hero h1 {
@@ -61,13 +82,26 @@
         
         .hero p {
             font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 30px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Mockup de Mídia no Hero */
+        .hero-media {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e0e0e0;
+            min-height: 350px;
+            border-radius: 10px;
+            color: #666;
+            font-size: 1.2rem;
         }
         
         .trust-badges {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 30px;
             margin-bottom: 30px;
         }
@@ -80,23 +114,24 @@
         
         .badge i {
             font-size: 24px;
-            color: #28a745;
+            color: var(--gold);
         }
         
         .cta-button {
             display: inline-block;
-            background-color: #28a745;
-            color: white;
+            background-color: var(--gold);
+            color: var(--dark-blue);
             padding: 15px 30px;
             border-radius: 5px;
             font-size: 1.2rem;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
             transition: all 0.3s;
         }
         
         .cta-button:hover {
-            background-color: #218838;
+            background-color: var(--bronze);
+            color: var(--white);
             transform: translateY(-2px);
         }
         
@@ -108,14 +143,15 @@
         
         /* Seção de Problemas */
         .problems {
-            padding: 60px 0;
-            background-color: #fff;
+            padding: 80px 0;
+            background-color: var(--white);
         }
         
         .section-title {
             text-align: center;
             margin-bottom: 50px;
-            font-size: 2rem;
+            font-size: 2.2rem;
+            color: var(--dark-blue);
         }
         
         .problems-list {
@@ -129,19 +165,20 @@
             gap: 15px;
             margin-bottom: 20px;
             padding: 15px;
-            background-color: #f8f9fa;
+            background-color: var(--light-gray);
+            border-left: 4px solid var(--bronze);
             border-radius: 5px;
         }
         
         .problem-item i {
-            color: #dc3545;
+            color: var(--bronze);
             font-size: 24px;
         }
         
         /* Seção de Solução */
         .solution {
-            padding: 60px 0;
-            background-color: #f8f9fa;
+            padding: 80px 0;
+            background-color: var(--light-gray);
         }
         
         .solution-content {
@@ -153,6 +190,15 @@
         .solution-text {
             flex: 1;
         }
+
+        .solution-text h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .solution-text p {
+            font-size: 1.1rem;
+        }
         
         .solution-image {
             flex: 1;
@@ -162,13 +208,31 @@
         .solution-image img {
             max-width: 100%;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
         
         /* Seção de Benefícios */
         .benefits {
-            padding: 60px 0;
-            background-color: #fff;
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        /* Mockup de vídeo na seção de benefícios */
+        .video-placeholder {
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+            aspect-ratio: 16 / 9;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+
+        .video-placeholder i {
+            font-size: 60px;
+            color: #999;
         }
         
         .benefits-grid {
@@ -181,28 +245,72 @@
         
         .benefit-item {
             display: flex;
-            gap: 15px;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-radius: 5px;
+            gap: 20px;
+            padding: 25px;
+            background-color: var(--light-gray);
+            border-radius: 8px;
         }
         
         .benefit-item i {
             font-size: 32px;
-            color: #0056b3;
+            color: var(--medium-blue);
             margin-top: 5px;
         }
         
+        /* NOVA Seção de Depoimentos */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            text-align: center;
+        }
+        .testimonial-photo-placeholder {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+        .testimonial-card h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: var(--dark-blue);
+        }
+        .testimonial-card p {
+            font-style: italic;
+            color: #555;
+        }
+
         /* Seção de Oferta */
         .offer {
-            padding: 60px 0;
-            background: linear-gradient(135deg, #28a745 0%, #218838 100%);
-            color: white;
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--bronze) 100%);
+            color: var(--dark-blue);
             text-align: center;
+        }
+
+        .offer .section-title {
+            color: var(--white);
         }
         
         .offer-box {
-            background-color: white;
+            background-color: var(--white);
             color: #333;
             padding: 40px;
             border-radius: 10px;
@@ -210,12 +318,45 @@
             margin: 0 auto;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
+
+        .offer-box-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
         
-        .price {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #28a745;
+        /* Módulos com Placeholder de Vídeo */
+        .module-list {
+            text-align: left;
             margin: 20px 0;
+            padding-left: 0;
+            list-style-type: none;
+        }
+        .module-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+        .module-video-placeholder {
+            width: 100px;
+            height: 60px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .module-video-placeholder i {
+            color: #999;
+            font-size: 24px;
+        }
+
+        .price {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--medium-blue);
+            margin: 20px 0 10px;
         }
         
         .installments {
@@ -229,17 +370,20 @@
             justify-content: center;
             gap: 15px;
             margin-top: 30px;
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
         }
         
         .guarantee i {
             font-size: 40px;
-            color: #ffc107;
+            color: var(--gold);
         }
         
         /* Seção FAQ */
         .faq {
-            padding: 60px 0;
-            background-color: #f8f9fa;
+            padding: 80px 0;
+            background-color: var(--white);
         }
         
         .faq-container {
@@ -248,15 +392,15 @@
         }
         
         .faq-item {
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
             overflow: hidden;
         }
         
         .faq-question {
-            padding: 15px 20px;
-            background-color: #fff;
+            padding: 20px;
+            background-color: var(--white);
             font-weight: 600;
             cursor: pointer;
             display: flex;
@@ -268,8 +412,9 @@
             padding: 0 20px;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            background-color: #fff;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            background-color: var(--white);
+            border-top: 1px solid var(--light-gray);
         }
         
         .faq-answer.active {
@@ -279,8 +424,8 @@
         
         /* Footer */
         footer {
-            background-color: #343a40;
-            color: white;
+            background-color: var(--dark-blue);
+            color: var(--white);
             padding: 40px 0;
             text-align: center;
         }
@@ -293,29 +438,46 @@
         }
         
         .footer-links a {
-            color: white;
+            color: var(--white);
             text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        .footer-links a:hover {
+            opacity: 1;
         }
         
         .copyright {
             font-size: 0.9rem;
-            opacity: 0.8;
+            opacity: 0.7;
         }
         
         /* Responsividade */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-text {
+                text-align: center;
+            }
+            .trust-badges {
+                justify-content: center;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
             }
-            
             .solution-content {
                 flex-direction: column;
             }
-            
             .benefits-grid {
                 grid-template-columns: 1fr;
             }
-            
             .trust-badges {
                 flex-direction: column;
                 align-items: center;
@@ -323,80 +485,54 @@
             }
         }
     </style>
-    <!-- Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container">
             <div class="logo">CROSS BANK <span>COM TORRENTE</span></div>
         </div>
     </header>
     
-    <!-- Seção Hero -->
     <section class="hero">
         <div class="container">
-        
-            <h1>Conecte Todos os Seus Bancos em um Único App com Segurança e Aumente seu Poder de Crédito no Mercado</h1>
-            <p>Aprenda o passo a passo oficial para usar o Open Finance, a tecnologia regulada pelo Banco Central, e transforme a maneira como você gerencia seu dinheiro e é visto pelos bancos.</p>
-            
-            <div class="trust-badges">
-                <div class="badge">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>100% Seguro: Tecnologia oficial do sistema financeiro</span>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Conecte Todos os Seus Bancos em um Único App com Segurança e Aumente seu Poder de Crédito no Mercado</h1>
+                    <p>Aprenda o passo a passo oficial para usar o Open Finance, a tecnologia regulada pelo Banco Central, e transforme a maneira como você gerencia seu dinheiro e é visto pelos bancos.</p>
+                    <div class="trust-badges">
+                        <div class="badge"><i class="fas fa-shield-alt"></i><span>100% Seguro</span></div>
+                        <div class="badge"><i class="fas fa-landmark"></i><span>Regulado pelo BC</span></div>
+                        <div class="badge"><i class="fas fa-user-lock"></i><span>Você no Controle</span></div>
+                    </div>
+                    <a href="#offer" class="cta-button">QUERO TER O CONTROLE TOTAL AGORA!</a>
+                    <p class="price-note">Acesso Imediato ao Método por apenas R$ 29,90</p>
                 </div>
-                <div class="badge">
-                    <i class="fas fa-landmark"></i>
-                    <span>Regulado pelo Banco Central</span>
-                </div>
-                <div class="badge">
-                    <i class="fas fa-user-lock"></i>
-                    <span>Você no Controle</span>
+                <div class="hero-media">
+                    <span>🖼️ Imagem ou Vídeo aqui</span>
                 </div>
             </div>
-            
-            <a href="#offer" class="cta-button">QUERO TER O CONTROLE TOTAL AGORA!</a>
-            <p class="price-note">Acesso Imediato ao Método por apenas R$ 29,90</p>
         </div>
     </section>
     
-    <!-- Seção de Problemas -->
     <section class="problems">
         <div class="container">
             <h2 class="section-title">Se a sua vida financeira parece um quebra-cabeça, você não está sozinho</h2>
-            
             <div class="problems-list">
-                <div class="problem-item">
-                    <i class="fas fa-times"></i>
-                    <span><strong>Confusão de Apps:</strong> Abrir 3, 4 ou mais aplicativos só para saber onde está seu dinheiro.</span>
-                </div>
-                <div class="problem-item">
-                    <i class="fas fa-times"></i>
-                    <span><strong>Faturas Surpresa:</strong> Perder o controle dos vencimentos e limites de cada cartão de crédito.</span>
-                </div>
-                <div class="problem-item">
-                    <i class="fas fa-times"></i>
-                    <span><strong>"Não sei para onde foi":</strong> A sensação de que o dinheiro some sem que você entenda o porquê.</span>
-                </div>
-                <div class="problem-item">
-                    <i class="fas fa-times"></i>
-                    <span><strong>Limites que não sobem:</strong> Pedir um aumento de limite e receber um "não" sem explicação.</span>
-                </div>
-                <div class="problem-item">
-                    <i class="fas fa-times"></i>
-                    <span><strong>Sentimento de Impotência:</strong> Achar que nunca vai conseguir aquele cartão de crédito dos sonhos.</span>
-                </div>
+                <div class="problem-item"><i class="fas fa-times"></i><span><strong>Confusão de Apps:</strong> Abrir 3, 4 ou mais aplicativos só para saber onde está seu dinheiro.</span></div>
+                <div class="problem-item"><i class="fas fa-times"></i><span><strong>Faturas Surpresa:</strong> Perder o controle dos vencimentos e limites de cada cartão de crédito.</span></div>
+                <div class="problem-item"><i class="fas fa-times"></i><span><strong>"Não sei para onde foi":</strong> A sensação de que o dinheiro some sem que você entenda o porquê.</span></div>
+                <div class="problem-item"><i class="fas fa-times"></i><span><strong>Limites que não sobem:</strong> Pedir um aumento de limite e receber um "não" sem explicação.</span></div>
+                <div class="problem-item"><i class="fas fa-times"></i><span><strong>Sentimento de Impotência:</strong> Achar que nunca vai conseguir aquele cartão de crédito dos sonhos.</span></div>
             </div>
         </div>
     </section>
     
-    <!-- Seção de Solução -->
     <section class="solution">
         <div class="container">
             <div class="solution-content">
                 <div class="solution-text">
-                    <h2 class="section-title">A revolução financeira já começou. Chegou a sua hora de participar.</h2>
+                    <h2 class="section-title" style="text-align: left;">A revolução financeira já começou. Chegou a sua hora de participar.</h2>
                     <h3>Apresentamos o método <strong>CROSS BANK - COM TORRENTE</strong></h3>
                     <p>Um guia em vídeo, direto ao ponto, que te mostra na tela do celular como usar o sistema Open Finance para criar uma <strong>torrente de informações positivas</strong> a seu favor. Você vai centralizar sua vida financeira, ganhar clareza e mostrar para o seu banco principal que você é um cliente que merece confiança e crédito.</p>
                 </div>
@@ -407,177 +543,112 @@
         </div>
     </section>
     
-    <!-- Seção de Benefícios -->
     <section class="benefits">
         <div class="container">
             <h2 class="section-title">Veja como sua vida financeira vai se transformar:</h2>
             
+            <div class="video-placeholder">
+                <i class="fas fa-play"></i>
+            </div>
+            
             <div class="benefits-grid">
-                <div class="benefit-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <div>
-                        <h3>Segurança em Primeiro Lugar</h3>
-                        <p>Entenda por que o Open Finance é mais seguro do que você imagina e como seus dados são criptografados.</p>
-                    </div>
+                <div class="benefit-item"><i class="fas fa-shield-alt"></i><div><h3>Segurança em Primeiro Lugar</h3><p>Entenda por que o Open Finance é mais seguro do que você imagina e como seus dados são criptografados.</p></div></div>
+                <div class="benefit-item"><i class="fas fa-chart-line"></i><div><h3>Visão Panorâmica</h3><p>Enxergue o saldo consolidado de todas as suas contas e investimentos em uma única tela, em tempo real.</p></div></div>
+                <div class="benefit-item"><i class="fas fa-credit-card"></i><div><h3>Mestre dos Cartões</h3><p>Gerencie limites, faturas e gastos de todos os seus cartões de crédito sem estresse e sem surpresas.</p></div></div>
+                <div class="benefit-item"><i class="fas fa-rocket"></i><div><h3>O Passaporte para o Crédito de Elite</h3><p>Ao permitir que seu banco veja seu bom comportamento financeiro, você se torna um candidato VIP para aumentos de limite e cartões Black/Platinum.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">O que nossos clientes dizem</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-photo-placeholder"><i class="fas fa-user"></i></div>
+                    <h4>João S.</h4>
+                    <p>"Eu não tinha ideia do poder do Open Finance. O método Cross Bank abriu meus olhos e finalmente consegui o cartão que tanto queria!"</p>
                 </div>
-                <div class="benefit-item">
-                    <i class="fas fa-chart-line"></i>
-                    <div>
-                        <h3>Visão Panorâmica</h3>
-                        <p>Enxergue o saldo consolidado de todas as suas contas e investimentos em uma única tela, em tempo real.</p>
-                    </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-photo-placeholder"><i class="fas fa-user"></i></div>
+                    <h4>Maria P.</h4>
+                    <p>"Acabou a bagunça de ter 5 apps de banco. Agora vejo tudo em um só lugar. É uma paz de espírito que não tem preço. Recomendo demais!"</p>
                 </div>
-                <div class="benefit-item">
-                    <i class="fas fa-credit-card"></i>
-                    <div>
-                        <h3>Mestre dos Cartões</h3>
-                        <p>Gerencie limites, faturas e gastos de todos os seus cartões de crédito sem estresse e sem surpresas.</p>
-                    </div>
-                </div>
-                <div class="benefit-item">
-                    <i class="fas fa-rocket"></i>
-                    <div>
-                        <h3>O Passaporte para o Crédito de Elite</h3>
-                        <p>Ao permitir que seu banco veja seu bom comportamento financeiro em todas as instituições, você se torna um candidato VIP para aumentos de limite e cartões Black/Platinum.</p>
-                    </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-photo-placeholder"><i class="fas fa-user"></i></div>
+                    <h4>Carlos F.</h4>
+                    <p>"Simples, direto e funciona. Em uma semana, minha organização financeira era outra. O bônus do checklist é fantástico."</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Seção de Oferta -->
     <section class="offer" id="offer">
         <div class="container">
             <h2 class="section-title">Sua tranquilidade financeira não tem preço, mas o acesso a ela sim. E é um preço justo.</h2>
             
             <div class="offer-box">
-                <img src="./Imagem Hero (Destaque) _Smartphone mostrando um app fictício que exibe saldos de.png" alt="Capa do Produto" style="max-width: 300px; margin-bottom: 20px;">
-                
-                <h3>Seu Acesso Completo ao Método CROSS BANK</h3>
-                <ul style="text-align: left; margin: 20px 0; padding-left: 20px;">
-                    <li style="margin-bottom: 10px;"><strong>Módulo 1:</strong> Fundamentos da Confiança - Desmistificando o Open Finance</li>
-                    <li style="margin-bottom: 10px;"><strong>Módulo 2:</strong> A Conexão na Prática (Cross Bank) - Passo a passo em vídeo</li>
-                    <li style="margin-bottom: 10px;"><strong>Módulo 3:</strong> Gerenciamento Inteligente - Como usar as ferramentas do seu super-app</li>
-                    <li><strong>Bônus Exclusivo:</strong> Checklist do Cliente Confiável</li>
+                <h3 class="offer-box-title">Seu Acesso Completo ao Método CROSS BANK</h3>
+                <ul class="module-list">
+                    <li class="module-item">
+                        <div class="module-video-placeholder"><i class="fas fa-play"></i></div>
+                        <div><strong>Módulo 1:</strong> Fundamentos da Confiança - Desmistificando o Open Finance</div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-video-placeholder"><i class="fas fa-play"></i></div>
+                        <div><strong>Módulo 2:</strong> A Conexão na Prática (Cross Bank) - Passo a passo em vídeo</div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-video-placeholder"><i class="fas fa-play"></i></div>
+                        <div><strong>Módulo 3:</strong> Gerenciamento Inteligente - Como usar as ferramentas</div>
+                    </li>
+                     <li class="module-item">
+                        <div class="module-video-placeholder"><i class="fas fa-play"></i></div>
+                        <div><strong>Bônus Exclusivo:</strong> Checklist do Cliente Confiável</div>
+                    </li>
                 </ul>
                 
                 <div class="price">R$ 29,90</div>
                 <div class="installments">ou 3x de R$ 10,50 no cartão</div>
                 
-                <a href="#" class="cta-button" style="background-color: #28a745; color: white; padding: 15px 40px; font-size: 1.3rem;">SIM, QUERO GARANTIR MEU ACESSO SEGURO!</a>
+                <a href="#" class="cta-button" style="background-color: var(--medium-blue); color: white; padding: 15px 40px; font-size: 1.3rem;">SIM, QUERO GARANTIR MEU ACESSO SEGURO!</a>
                 
                 <div class="guarantee">
                     <i class="fas fa-medal"></i>
                     <div>
                         <h4>Garantia Blindada de 7 Dias</h4>
-                        <p>Acesse o método CROSS BANK hoje. Se em até 7 dias você não sentir que sua vida financeira está mais clara e organizada, basta enviar um único e-mail e nós devolveremos 100% do seu investimento. Sem perguntas, sem burocracia. O risco é todo nosso.</p>
+                        <p>Acesse o método, e se em 7 dias não sentir sua vida financeira mais clara, basta enviar um e-mail e nós devolveremos 100% do seu investimento. Risco zero.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Seção FAQ -->
     <section class="faq">
         <div class="container">
             <h2 class="section-title">Ainda tem dúvidas? Nós respondemos com total transparência.</h2>
-            
             <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>É realmente seguro compartilhar meus dados bancários?</span>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Sim. O Open Finance é uma iniciativa do <strong>Banco Central do Brasil</strong>. A segurança é a mesma do aplicativo do seu banco, com múltiplas camadas de criptografia. Nenhum dado é compartilhado sem a sua autorização explícita, que você pode revogar a qualquer momento.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>O CROSS BANK é um aplicativo? Terei que baixar algo novo?</span>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Não. O CROSS BANK não é um aplicativo. É um <strong>método de ensino em vídeo</strong> que te mostra como usar a função Open Finance que <strong>já existe dentro do aplicativo do seu próprio banco</strong>. Você não baixa nada novo, apenas aprende a usar uma ferramenta poderosa que já está à sua disposição.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Qual banco eu devo usar para centralizar os outros?</span>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>No método, nós damos as diretrizes para você escolher o seu melhor "banco principal", geralmente aquele com quem você tem o melhor relacionamento ou onde deseja obter mais crédito. O processo é similar em todos os grandes bancos.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Isso funciona para quais bancos e cartões?</span>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Funciona para todos os grandes bancos e instituições financeiras do Brasil (Itaú, Bradesco, Santander, Banco do Brasil, Caixa, Nubank, Inter, C6, etc.). Eles são obrigados por lei a participar do sistema.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Alguém terá acesso às minhas senhas?</span>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p><strong>NUNCA.</strong> O processo de conexão é feito diretamente entre os sistemas seguros dos bancos. Você nunca digita a senha de um banco no aplicativo de outro. A autorização é feita por redirecionamento seguro.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Fazer isso vai "sujar meu nome" ou afetar meu score de alguma forma?</span>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Pelo contrário. Ao centralizar suas informações, você mostra um retrato completo e positivo da sua saúde financeira, o que <strong>tende a melhorar a sua avaliação de crédito</strong> junto ao banco que você escolheu como principal.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>O acesso ao método é por quanto tempo?</span>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>O acesso é vitalício. Você paga uma vez e pode consultar as aulas sempre que quiser, incluindo futuras atualizações.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Como recebo o acesso após o pagamento?</span>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Imediatamente. Assim que o pagamento for processado, você receberá um e-mail da Hotmart (nossa plataforma de pagamentos segura) com seu link de acesso pessoal para a área de membros.</p>
-                    </div>
-                </div>
+                <div class="faq-item"><div class="faq-question"><span>É realmente seguro compartilhar meus dados bancários?</span><i class="fas fa-plus"></i></div><div class="faq-answer"><p>Sim. O Open Finance é uma iniciativa do <strong>Banco Central do Brasil</strong>. A segurança é a mesma do aplicativo do seu banco, com múltiplas camadas de criptografia. Nenhum dado é compartilhado sem a sua autorização explícita, que você pode revogar a qualquer momento.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>O CROSS BANK é um aplicativo? Terei que baixar algo novo?</span><i class="fas fa-plus"></i></div><div class="faq-answer"><p>Não. O CROSS BANK não é um aplicativo. É um <strong>método de ensino em vídeo</strong> que te mostra como usar a função Open Finance que <strong>já existe dentro do aplicativo do seu próprio banco</strong>. Você não baixa nada novo, apenas aprende a usar uma ferramenta poderosa que já está à sua disposição.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Qual banco eu devo usar para centralizar os outros?</span><i class="fas fa-plus"></i></div><div class="faq-answer"><p>No método, nós damos as diretrizes para você escolher o seu melhor "banco principal", geralmente aquele com quem você tem o melhor relacionamento ou onde deseja obter mais crédito. O processo é similar em todos os grandes bancos.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Isso funciona para quais bancos e cartões?</span><i class="fas fa-plus"></i></div><div class="faq-answer"><p>Funciona para todos os grandes bancos e instituições financeiras do Brasil (Itaú, Bradesco, Santander, Banco do Brasil, Caixa, Nubank, Inter, C6, etc.). Eles são obrigados por lei a participar do sistema.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Alguém terá acesso às minhas senhas?</span><i class="fas fa-plus"></i></div><div class="faq-answer"><p><strong>NUNCA.</strong> O processo de conexão é feito diretamente entre os sistemas seguros dos bancos. Você nunca digita a senha de um banco no aplicativo de outro. A autorização é feita por redirecionamento seguro.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Fazer isso vai "sujar meu nome" ou afetar meu score de alguma forma?</span><i class="fas fa-plus"></i></div><div class="faq-answer"><p>Pelo contrário. Ao centralizar suas informações, você mostra um retrato completo e positivo da sua saúde financeira, o que <strong>tende a melhorar a sua avaliação de crédito</strong> junto ao banco que você escolheu como principal.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>O acesso ao método é por quanto tempo?</span><i class="fas fa-plus"></i></div><div class="faq-answer"><p>O acesso é vitalício. Você paga uma vez e pode consultar as aulas sempre que quiser, incluindo futuras atualizações.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Como recebo o acesso após o pagamento?</span><i class="fas fa-plus"></i></div><div class="faq-answer"><p>Imediatamente. Assim que o pagamento for processado, você receberá um e-mail da Hotmart (nossa plataforma de pagamentos segura) com seu link de acesso pessoal para a área de membros.</p></div></div>
             </div>
         </div>
     </section>
     
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="logo" style="color: white; margin-bottom: 20px;">CROSS BANK <span>COM TORRENTE</span></div>
-            
             <div class="footer-links">
                 <a href="#">Termos de Uso</a>
                 <a href="#">Política de Privacidade</a>
                 <a href="#">Contato</a>
             </div>
-            
-            <p class="copyright">© 2023 Cross Bank. Todos os direitos reservados.</p>
+            <p class="copyright">© 2025 Cross Bank. Todos os direitos reservados.</p>
             <p class="copyright">Este produto não é afiliado ao Banco Central ou a qualquer instituição financeira.</p>
         </div>
     </footer>
@@ -588,15 +659,18 @@
             question.addEventListener('click', () => {
                 const answer = question.nextElementSibling;
                 const icon = question.querySelector('i');
+                const wasActive = answer.classList.contains('active');
                 
-                answer.classList.toggle('active');
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.classList.remove('active');
+                    ans.previousElementSibling.querySelector('i').classList.remove('fa-minus');
+                    ans.previousElementSibling.querySelector('i').classList.add('fa-plus');
+                });
                 
-                if (answer.classList.contains('active')) {
+                if(!wasActive) {
+                    answer.classList.add('active');
                     icon.classList.remove('fa-plus');
                     icon.classList.add('fa-minus');
-                } else {
-                    icon.classList.remove('fa-minus');
-                    icon.classList.add('fa-plus');
                 }
             });
         });
@@ -605,12 +679,10 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
 </body>
 </html>
+```
